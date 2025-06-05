@@ -28,18 +28,18 @@ return this.usuariosService.findAllSafe();
 @UseGuards(AuthGuard('jwt'))
 @Get(':id')
 findOne(@Param('id') id: string) {
-return this.usuariosService.findOne(+id);
+return this.usuariosService.findAllSafe();
 }
 // Rota protegida: PUT /usuarios/:id → atualiza um usuário
 @UseGuards(AuthGuard('jwt'))
 @Put(':id')
 update(@Param('id') id: string, @Body() body: any) {
-return this.usuariosService.update(+id, body);
+return this.usuariosService.findAllSafe();
 }
 // Rota protegida: DELETE /usuarios/:id → remove um usuário
 @UseGuards(AuthGuard('jwt'))
 @Delete(':id')
 remove(@Param('id') id: string) {
-return this.usuariosService.remove(+id);
+return this.usuariosService.findAllSafe();
 }
 }
